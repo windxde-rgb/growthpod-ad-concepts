@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowthPod — 15 Ad Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0D0D0D;--bg2:#141414;--card:#1a1a1a;--card2:#1f1f1f;--txt:#F5F5F5;--txt2:#8C8C8C;--muted:#555;--accent:#A6EE2B;--accent10:rgba(166,238,43,.1);--accent20:rgba(166,238,43,.2);--red:#ff6b6b;--red10:rgba(255,107,107,.1);--bdr:rgba(255,255,255,.06);--r:12px;--rs:8px;--pill:9999px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+.hdr{padding:48px 24px 32px;text-align:center;border-bottom:1px solid var(--bdr);background:linear-gradient(180deg,rgba(166,238,43,.03) 0%,transparent 100%)}
+.hdr .logo{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin-bottom:4px}.hdr .logo span{color:var(--accent)}
+.hdr h1{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;letter-spacing:-1.2px;margin-bottom:6px}
+.hdr h1 em{color:var(--accent);font-style:normal}
+.hdr .sub{color:var(--txt2);font-size:13px}.hdr .sub strong{color:var(--txt);font-weight:500}
+
+/* Research summary section */
+.research{max-width:1000px;margin:0 auto;padding:32px 24px}
+.research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px}
+.r-card{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:24px}
+.r-card h3{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.r-card ul{list-style:none;padding:0}
+.r-card li{font-size:13px;color:var(--txt2);padding:6px 0;border-bottom:1px solid var(--bdr);display:flex;justify-content:space-between}
+.r-card li:last-child{border:none}
+.r-card li strong{color:var(--txt);font-weight:500}
+.r-card li .pct{color:var(--accent);font-weight:600;font-size:12px}
+
+/* Filter bar */
+.filters{max-width:1000px;margin:0 auto;padding:0 24px 24px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.filter-row .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txt2);line-height:30px;min-width:65px}
+.fbtn{font-size:11px;font-weight:600;padding:5px 14px;border-radius:var(--pill);border:1px solid var(--bdr);background:transparent;color:var(--txt2);cursor:pointer;transition:all .15s}
+.fbtn:hover{border-color:rgba(166,238,43,.3);color:var(--txt)}
+.fbtn.active{background:var(--accent10);color:var(--accent);border-color:rgba(166,238,43,.3)}
+
+/* Concepts grid */
+.concepts{max-width:1000px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+
+.concept{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;transition:border-color .2s,transform .2s;cursor:pointer}
+.concept:hover{border-color:rgba(166,238,43,.2);transform:translateY(-2px)}
+.concept.hidden{display:none}
+
+.c-top{padding:20px 20px 16px;border-bottom:1px solid var(--bdr)}
+.c-num{font-size:11px;font-weight:700;color:var(--bg);background:var(--accent);display:inline-block;padding:2px 8px;border-radius:var(--pill);margin-bottom:8px}
+.c-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;line-height:1.3}
+.c-tags{display:flex;gap:5px;flex-wrap:wrap}
+.c-tag{font-size:10px;font-weight:600;padding:3px 8px;border-radius:var(--pill);border:1px solid var(--bdr);color:var(--txt2)}
+.c-tag.format{background:rgba(166,238,43,.06);color:var(--accent);border-color:rgba(166,238,43,.1)}
+
+.c-body{padding:16px 20px}
+.c-section{margin-bottom:14px}
+.c-section:last-child{margin-bottom:0}
+.c-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px}
+
+.c-headline{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--txt);line-height:1.4;padding:8px 12px;background:var(--bg2);border-radius:var(--rs);margin-bottom:6px;border-left:2px solid var(--accent)}
+.c-headline .var{font-size:10px;color:var(--accent);font-weight:700;margin-right:6px}
+.c-headline .type{font-size:10px;color:var(--muted);font-weight:400;display:block;margin-top:2px}
+
+.c-sub{font-size:13px;color:var(--txt2);line-height:1.5}
+
+.c-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.c-pill{font-size:10px;font-weight:600;color:var(--accent);background:var(--accent10);padding:3px 10px;border-radius:var(--pill)}
+
+/* Comparison rows in concept */
+.c-comp{margin-top:8px}
+.c-comp-row{display:flex;font-size:11px;border-bottom:1px solid var(--bdr);padding:5px 0}
+.c-comp-row:last-child{border:none}
+.c-comp-them{flex:1;color:var(--muted)}
+.c-comp-them::before{content:'✕ ';color:var(--red);font-size:10px}
+.c-comp-us{flex:1;color:var(--txt);font-weight:500}
+.c-comp-us::before{content:'✓ ';color:var(--accent);font-size:10px}
+
+.c-img{font-size:12px;color:var(--txt2);line-height:1.5;padding:10px 12px;background:var(--bg2);border-radius:var(--rs);border-left:2px solid rgba(166,238,43,.3)}
+
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;overflow-y:auto;padding:40px 24px}
+.modal-overlay.open{display:flex;justify-content:center;align-items:flex-start}
+.modal{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);max-width:640px;width:100%;padding:32px;position:relative;animation:fadeUp .25s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--txt2);font-size:20px;cursor:pointer;padding:4px 8px;border-radius:4px}
+.modal-close:hover{color:var(--txt);background:rgba(255,255,255,.05)}
+
+@media(max-width:640px){.concepts{grid-template-columns:1fr}.hdr h1{font-size:24px}.research-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="logo">growthpod <span>&#127793;</span></div>
+  <h1>15 Ad <em>Concepts</em></h1>
+  <p class="sub"><strong>Self-Promo Campaign</strong> &middot; 5 personas &middot; 7 angles &middot; 6 formats &middot; 2026-05-15</p>
+</header>
+
+<!-- Research Summary -->
+<section class="research">
+  <div class="research-grid">
+    <div class="r-card">
+      <h3>5 Personas</h3>
+      <ul>
+        <li><strong>The Plateau Founder</strong><span class="pct">35%</span></li>
+        <li><strong>The DIY Burnout</strong><span class="pct">20%</span></li>
+        <li><strong>The Agency-Burned Founder</strong><span class="pct">20%</span></li>
+        <li><strong>The Scale-Ready Operator</strong><span class="pct">15%</span></li>
+        <li><strong>The Video-Only Blind Spot</strong><span class="pct">10%</span></li>
+      </ul>
+    </div>
+    <div class="r-card">
+      <h3>7 Messaging Angles</h3>
+      <ul>
+        <li><strong>Creative Is The Bottleneck</strong></li>
+        <li><strong>The Agency Trust Gap</strong></li>
+        <li><strong>Creative Fatigue = Volume</strong></li>
+        <li><strong>Static Ads Are Underrated</strong></li>
+        <li><strong>Profit Over Vanity</strong></li>
+        <li><strong>The DIY Trap</strong></li>
+        <li><strong>Scroll-Stopping vs Scroll-Past</strong></li>
+      </ul>
+    </div>
+    <div class="r-card">
+      <h3>Key Data Points</h3>
+      <ul>
+        <li>Ad creative lifespan on Meta<strong>2-3 weeks</strong></li>
+        <li>Monthly variants needed<strong>8-12+</strong></li>
+        <li>Ad performance from creative<strong>70-80%</strong></li>
+        <li>UGC YoY decline<strong>-47%</strong></li>
+        <li>GrowthPod managed spend<strong>$679K+</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Filters -->
+<section class="filters">
+  <div class="filter-row">
+    <span class="label">Persona</span>
+    <button class="fbtn active" onclick="filter('persona','all')">All</button>
+    <button class="fbtn" onclick="filter('persona','plateau')">Plateau Founder</button>
+    <button class="fbtn" onclick="filter('persona','diy')">DIY Burnout</button>
+    <button class="fbtn" onclick="filter('persona','burned')">Agency-Burned</button>
+    <button class="fbtn" onclick="filter('persona','scale')">Scale-Ready</button>
+    <button class="fbtn" onclick="filter('persona','video')">Video-Only</button>
+  </div>
+  <div class="filter-row">
+    <span class="label">Format</span>
+    <button class="fbtn active" onclick="filter('format','all')">All</button>
+    <button class="fbtn" onclick="filter('format','headline')">Headline</button>
+    <button class="fbtn" onclick="filter('format','uvt')">Us vs Them</button>
+    <button class="fbtn" onclick="filter('format','testimonial')">Testimonial</button>
+    <button class="fbtn" onclick="filter('format','statistics')">Statistics</button>
+    <button class="fbtn" onclick="filter('format','features')">Features</button>
+  </div>
+</section>
+
+<!-- Concepts Grid -->
+<section class="concepts" id="concepts">
+
+  <!-- Concept 1 -->
+  <div class="concept" data-persona="burned" data-format="uvt" onclick="openModal(1)">
+    <div class="c-top">
+      <span class="c-num">01</span>
+      <div class="c-name">The Portfolio Is The Pitch</div>
+      <div class="c-tags">
+        <span class="c-tag format">Us vs Them</span>
+        <span class="c-tag">Agency-Burned</span>
+        <span class="c-tag">Product-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>Every Agency Showed You a Deck. We'll Show You the Work.</div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Comparison</div>
+        <div class="c-comp">
+          <div class="c-comp-row"><span class="c-comp-them">Pitch deck with projections</span><span class="c-comp-us">Portfolio with real spend data</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Stock photo mockups</span><span class="c-comp-us">Ads running at $241K+</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Monthly impression reports</span><span class="c-comp-us">Profit-focused results</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 2 -->
+  <div class="concept" data-persona="plateau" data-format="uvt" onclick="openModal(2)">
+    <div class="c-top">
+      <span class="c-num">02</span>
+      <div class="c-name">Stock Photo Graveyard</div>
+      <div class="c-tags">
+        <span class="c-tag format">Us vs Them</span>
+        <span class="c-tag">Plateau Founder</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>One Of These Gets Screenshotted. The Other Gets Scrolled.</div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Comparison</div>
+        <div class="c-comp">
+          <div class="c-comp-row"><span class="c-comp-them">Stock photo smile</span><span class="c-comp-us">Concept that punches</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Generic headline</span><span class="c-comp-us">VoC-powered hook</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">2-day creative lifespan</span><span class="c-comp-us">Weeks of scale</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 3 -->
+  <div class="concept" data-persona="plateau" data-format="headline" onclick="openModal(3)">
+    <div class="c-top">
+      <span class="c-num">03</span>
+      <div class="c-name">The Creative Bottleneck</div>
+      <div class="c-tags">
+        <span class="c-tag format">Headline</span>
+        <span class="c-tag">Plateau Founder</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Headlines</div>
+        <div class="c-headline"><span class="var">A</span>Your Funnel Isn't Broken. Your Creative Is.<span class="type">Reframe, Straight</span></div>
+        <div class="c-headline"><span class="var">B</span>If You've Optimized Everything Except Creative, You've Optimized Nothing.<span class="type">Conditional, Straight</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-pills"><span class="c-pill">Concept-driven</span><span class="c-pill">Scroll-stopping</span><span class="c-pill">Profit-focused</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 4 -->
+  <div class="concept" data-persona="diy" data-format="headline" onclick="openModal(4)">
+    <div class="c-top">
+      <span class="c-num">04</span>
+      <div class="c-name">Founder Time Trap</div>
+      <div class="c-tags">
+        <span class="c-tag format">Headline</span>
+        <span class="c-tag">DIY Burnout</span>
+        <span class="c-tag">Problem-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Headlines</div>
+        <div class="c-headline"><span class="var">A</span>$200/hr Founder Time on $50/hr Creative Work. Do The Math.<span class="type">Formula/Math, Straight</span></div>
+        <div class="c-headline"><span class="var">B</span>The Most Expensive Creative Is The Kind You Make Yourself.<span class="type">Reframe, Straight</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-pills"><span class="c-pill">No Canva needed</span><span class="c-pill">Concept-to-launch</span><span class="c-pill">Built to scale</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 5 -->
+  <div class="concept" data-persona="scale" data-format="statistics" onclick="openModal(5)">
+    <div class="c-top">
+      <span class="c-num">05</span>
+      <div class="c-name">2-Week Shelf Life</div>
+      <div class="c-tags">
+        <span class="c-tag format">Statistics</span>
+        <span class="c-tag">Scale-Ready</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>Your Ad Burns Out In 2-3 Weeks. Meta Needs 12+ Variants A Month.<span class="type">Credibility/Authority</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Key Stats</div>
+        <div class="c-sub">2-3 weeks avg lifespan &middot; 8-12 variants/month min &middot; 70-80% performance = creative</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 6 -->
+  <div class="concept" data-persona="plateau" data-format="testimonial" onclick="openModal(6)">
+    <div class="c-top">
+      <span class="c-num">06</span>
+      <div class="c-name">Profit, Not Impressions</div>
+      <div class="c-tags">
+        <span class="c-tag format">Testimonial</span>
+        <span class="c-tag">Plateau Founder</span>
+        <span class="c-tag">Product-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Quote</div>
+        <div class="c-headline"><span class="var">VoC</span>"Grew us over 200% YoY. Sebastian focuses on profit, not vanity metrics."<span class="type">David Hayford, Tether Tug</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Subheading</div>
+        <div class="c-sub">GrowthPod. Profit-first creative.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 7 -->
+  <div class="concept" data-persona="burned" data-format="features" onclick="openModal(7)">
+    <div class="c-top">
+      <span class="c-num">07</span>
+      <div class="c-name">Template vs. Concept</div>
+      <div class="c-tags">
+        <span class="c-tag format">Features</span>
+        <span class="c-tag">Agency-Burned</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>Template Agencies Ship Layouts. We Ship Concepts.<span class="type">Mechanism Contrast</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-pills"><span class="c-pill">VoC-powered copy</span><span class="c-pill">Concept-driven design</span><span class="c-pill">Humor that converts</span><span class="c-pill">Profit-tracked</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 8 -->
+  <div class="concept" data-persona="plateau" data-format="headline" onclick="openModal(8)">
+    <div class="c-top">
+      <span class="c-num">08</span>
+      <div class="c-name">The ROAS Reframe</div>
+      <div class="c-tags">
+        <span class="c-tag format">Headline</span>
+        <span class="c-tag">Plateau Founder</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Headlines</div>
+        <div class="c-headline"><span class="var">A</span>Your ROAS Didn't Decline. Your Creative Got Lazy.<span class="type">Reframe, Straight</span></div>
+        <div class="c-headline"><span class="var">B</span>Stop Testing Audiences. Start Testing Creative.<span class="type">Confrontational Command</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 9 -->
+  <div class="concept" data-persona="video" data-format="statistics" onclick="openModal(9)">
+    <div class="c-top">
+      <span class="c-num">09</span>
+      <div class="c-name">Static Outperforms Video</div>
+      <div class="c-tags">
+        <span class="c-tag format">Statistics</span>
+        <span class="c-tag">Video-Only</span>
+        <span class="c-tag">Unaware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>The Ad Format With The Best ROAS On Meta Isn't Video.<span class="type">Curiosity Gap</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Key Stats</div>
+        <div class="c-sub">Static = highest ROAS for warm audiences &middot; UGC declining -47% YoY &middot; Reels fatigue faster</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 10 -->
+  <div class="concept" data-persona="diy" data-format="uvt" onclick="openModal(10)">
+    <div class="c-top">
+      <span class="c-num">10</span>
+      <div class="c-name">AI Can't Replace Taste</div>
+      <div class="c-tags">
+        <span class="c-tag format">Us vs Them</span>
+        <span class="c-tag">DIY Burnout</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>AI Generates Variations. Humans Generate Concepts.<span class="type">Mechanism Contrast</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Comparison</div>
+        <div class="c-comp">
+          <div class="c-comp-row"><span class="c-comp-them">AI-generated layout</span><span class="c-comp-us">Human-crafted concept</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">50 variations, same idea</span><span class="c-comp-us">One idea worth 50 variations</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Fast and forgettable</span><span class="c-comp-us">Built to stop the scroll</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 11 -->
+  <div class="concept" data-persona="all" data-format="headline" onclick="openModal(11)">
+    <div class="c-top">
+      <span class="c-num">11</span>
+      <div class="c-name">The Screenshot Test</div>
+      <div class="c-tags">
+        <span class="c-tag format">Headline</span>
+        <span class="c-tag">All Personas</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Headlines</div>
+        <div class="c-headline"><span class="var">A</span>If Your Ads Don't Make People Screenshot, They Don't Make People Buy.<span class="type">Conditional</span></div>
+        <div class="c-headline"><span class="var">C</span>Nobody Screenshots A Stock Photo.<span class="type">Provocation</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-pills"><span class="c-pill">Scroll-stopping</span><span class="c-pill">Concept-driven</span><span class="c-pill">72+ in portfolio</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 12 -->
+  <div class="concept" data-persona="burned" data-format="testimonial" onclick="openModal(12)">
+    <div class="c-top">
+      <span class="c-num">12</span>
+      <div class="c-name">200% YoY. Not Impressions.</div>
+      <div class="c-tags">
+        <span class="c-tag format">Testimonial</span>
+        <span class="c-tag">Agency-Burned</span>
+        <span class="c-tag">Product-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Testimonial Cluster</div>
+        <div class="c-headline"><span class="var">1</span>"Grew us over 200% YoY." &mdash; David Hayford, Tether Tug</div>
+        <div class="c-headline"><span class="var">2</span>"Game-changer for our business." &mdash; Myke Bulley, Sauceware</div>
+        <div class="c-headline"><span class="var">3</span>"Generates positive cash flow." &mdash; Dr. Cyrus, Amla Green</div>
+      </div>
+      <div class="c-section">
+        <div class="c-sub"><strong>+200% YoY</strong> &middot; <strong>+227% sales</strong> &middot; <strong>$679K+ managed</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 13 -->
+  <div class="concept" data-persona="scale" data-format="headline" onclick="openModal(13)">
+    <div class="c-top">
+      <span class="c-num">13</span>
+      <div class="c-name">Feed The Machine</div>
+      <div class="c-tags">
+        <span class="c-tag format">Headline</span>
+        <span class="c-tag">Scale-Ready</span>
+        <span class="c-tag">Solution-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Headlines</div>
+        <div class="c-headline"><span class="var">A</span>Meta Needs 12 Concepts A Month. Your Agency Delivers 3.<span class="type">Reframe</span></div>
+        <div class="c-headline"><span class="var">C</span>You're Starving The Algorithm. It's Eating Your ROAS.<span class="type">Provocation</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-pills"><span class="c-pill">High-volume</span><span class="c-pill">Concept-driven</span><span class="c-pill">Scales for weeks</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 14 -->
+  <div class="concept" data-persona="burned" data-format="uvt" onclick="openModal(14)">
+    <div class="c-top">
+      <span class="c-num">14</span>
+      <div class="c-name">Show Me, Don't Tell Me</div>
+      <div class="c-tags">
+        <span class="c-tag format">Us vs Them</span>
+        <span class="c-tag">Agency-Burned</span>
+        <span class="c-tag">Product-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Lead Headline</div>
+        <div class="c-headline"><span class="var">A</span>What Agencies Promise vs. What GrowthPod Delivers.<span class="type">Mechanism Contrast</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-label">Comparison</div>
+        <div class="c-comp">
+          <div class="c-comp-row"><span class="c-comp-them">6-week ramp-up</span><span class="c-comp-us">Strategy call, then work</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Stock photo templates</span><span class="c-comp-us">Concept-driven originals</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Impressions, reach, CPM</span><span class="c-comp-us">ROAS, CPA, profit</span></div>
+          <div class="c-comp-row"><span class="c-comp-them">Monthly report PDF</span><span class="c-comp-us">Sebastian, directly</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept 15 -->
+  <div class="concept" data-persona="diy" data-format="headline" onclick="openModal(15)">
+    <div class="c-top">
+      <span class="c-num">15</span>
+      <div class="c-name">The Canva Confession</div>
+      <div class="c-tags">
+        <span class="c-tag format">Headline</span>
+        <span class="c-tag">DIY Burnout</span>
+        <span class="c-tag">Problem-Aware</span>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-section">
+        <div class="c-label">Headlines</div>
+        <div class="c-headline"><span class="var">A</span>"I Spent Sunday Making Ads In Canva. Monday They Had 0 Clicks."<span class="type">VoC Hook</span></div>
+        <div class="c-headline"><span class="var">B</span>Your Customers Can Tell It's Canva. Your ROAS Proves It.<span class="type">Provocation</span></div>
+      </div>
+      <div class="c-section">
+        <div class="c-pills"><span class="c-pill">No templates</span><span class="c-pill">Scroll-stopping</span><span class="c-pill">Profit-tracked</span></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+let activeFilters = { persona: 'all', format: 'all' };
+
+function filter(type, value) {
+  activeFilters[type] = value;
+  const row = type === 'persona' ? 0 : 1;
+  document.querySelectorAll('.filter-row')[row].querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.querySelectorAll('.concept').forEach(c => {
+    const pMatch = activeFilters.persona === 'all' || c.dataset.persona === activeFilters.persona || c.dataset.persona === 'all';
+    const fMatch = activeFilters.format === 'all' || c.dataset.format === activeFilters.format;
+    c.classList.toggle('hidden', !(pMatch && fMatch));
+  });
+}
+</script>
+</body>
+</html>
